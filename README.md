@@ -61,3 +61,10 @@ make run
 
 ## License
 MIT — see `LICENSE`.
+
+## Hardware & Enclosure
+- Fritzing design and diagrams: [`hardware/fritzing/`](hardware/fritzing/)
+- 3D-printable enclosure (3MF source; add STL/STEP exports as desired): [`hardware/enclosure/`](hardware/enclosure/)
+- Bill of Materials: [`hardware/BOM.csv`](hardware/BOM.csv)
+
+- Project log: [`docs/PROJECT_LOG.md`](docs/PROJECT_LOG.md)
