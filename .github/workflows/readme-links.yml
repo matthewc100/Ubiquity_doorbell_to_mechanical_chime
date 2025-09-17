@@ -12,4 +12,4 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - run: python scripts/update_readme_links.py --check || (echo "::error file=README.md::README links out of date. Run 'make readme-links'." && exit 1)
+      - run: python scripts/update_readme_links.py --check || (echo "::error file=README.md::README links out of date. Run 'python scripts/update_readme_links.py'." && exit 1)

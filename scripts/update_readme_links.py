@@ -11,9 +11,9 @@ Markers in README.md:
 Usage:
   python scripts/update_readme_links.py            # writes README.md
   python scripts/update_readme_links.py --check    # exits 1 if changes needed
+  python scripts/update_readme_links.py --verbose  # prints discovered files
 """
 import sys
-import os
 from pathlib import Path
 from urllib.parse import quote
 
@@ -40,35 +40,59 @@ def md_link(path: Path, label: str | None = None) -> str:
     href = quote(rel, safe="/._-")
     return f"[{label or path.name}]({href})"
 
-def gather_docs():
+def label_for(p: Path) -> str:
+    return FRIENDLY.get(p.name) or p.stem.replace("_", " ").replace("-", " ").title()
+
+def gather_docs(verbose=False):
     items = []
+    found = []
+
+    # Recurse for docs/**/*.md
     if DOCS.exists():
-        for p in sorted(DOCS.glob("*.md")):
-            label = FRIENDLY.get(p.name) or p.stem.replace("_", " ").replace("-", " ").title()
-            items.append(f"- **{label}:** {md_link(p)}")
+        for p in sorted(DOCS.rglob("*.md")):
+            found.append(p)
+            items.append(f"- **{label_for(p)}:** {md_link(p)}")
+
+    # Top-level files
     for name in ("LICENSE", "CHANGELOG.md", "CODEOWNERS"):
         p = ROOT / name
         if p.exists():
-            items.append(f"- **{FRIENDLY.get(name, name)}:** {md_link(p)}")
+            found.append(p)
+            items.append(f"- **{label_for(p)}:** {md_link(p)}")
+
+    if verbose:
+        print("Docs discovered:")
+        for p in found:
+            print("  -", p.as_posix())
     return items
 
-def gather_hw():
+def gather_hw(verbose=False):
     items = []
+    found = []
+
     fritz = HW / "fritzing"
     encl = HW / "enclosure"
     bom = HW / "BOM.csv"
     if fritz.exists():
         for p in sorted(fritz.glob("*.fzz")):
+            found.append(p)
             items.append(f"- **Fritzing design (.fzz):** {md_link(p)}")
     if encl.exists():
+        found.append(encl)
         items.append(f"- **Enclosure (3D models):** {md_link(encl)}")
     if bom.exists():
+        found.append(bom)
         items.append(f"- **{FRIENDLY['BOM.csv']}:** {md_link(bom)}")
+
+    if verbose:
+        print("Hardware discovered:")
+        for p in found:
+            print("  -", p.as_posix())
     return items
 
-def build_block() -> str:
-    doc_lines = gather_docs()
-    hw_lines = gather_hw()
+def build_block(verbose=False) -> str:
+    doc_lines = gather_docs(verbose=verbose)
+    hw_lines = gather_hw(verbose=verbose)
 
     out = []
     out.append("## Reference & Docs")
@@ -87,7 +111,8 @@ def build_block() -> str:
     return "\n".join(out) + "\n"
 
 def main():
-    block = build_block()
+    verbose = "--verbose" in sys.argv
+    block = build_block(verbose=verbose)
     if not README.exists():
         print("README.md not found", file=sys.stderr)
         sys.exit(2)
