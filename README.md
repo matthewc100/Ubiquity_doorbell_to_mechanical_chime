@@ -57,6 +57,24 @@ Lock port 8080 to your UDM-Pro (and optionally your admin machine). See `docs/FI
 make venv
 make test
 make run
+
+<!-- AUTOLINKS:BEGIN -->
+## Reference & Docs
+- **Firewall (UFW) hardening:** [FIREWALL.md](C%3A/Users/mcoblent/OneDrive/Ubiquity_doorbell_to_mechanical_chime/docs/FIREWALL.md)
+- **Operations (service, logs, updates):** [OPERATIONS.md](C%3A/Users/mcoblent/OneDrive/Ubiquity_doorbell_to_mechanical_chime/docs/OPERATIONS.md)
+- **Project log:** [PROJECT_LOG.md](C%3A/Users/mcoblent/OneDrive/Ubiquity_doorbell_to_mechanical_chime/docs/PROJECT_LOG.md)
+- **UniFi Protect setup:** [UNIFI-PROTECT.md](C%3A/Users/mcoblent/OneDrive/Ubiquity_doorbell_to_mechanical_chime/docs/UNIFI-PROTECT.md)
+- **License:** [LICENSE](C%3A/Users/mcoblent/OneDrive/Ubiquity_doorbell_to_mechanical_chime/LICENSE)
+- **Changelog:** [CHANGELOG.md](C%3A/Users/mcoblent/OneDrive/Ubiquity_doorbell_to_mechanical_chime/CHANGELOG.md)
+- **Codeowners:** [CODEOWNERS](C%3A/Users/mcoblent/OneDrive/Ubiquity_doorbell_to_mechanical_chime/CODEOWNERS)
+
+### Hardware
+- **Fritzing design (.fzz):** [Front Door chime.fzz](C%3A/Users/mcoblent/OneDrive/Ubiquity_doorbell_to_mechanical_chime/hardware/fritzing/Front%20Door%20chime.fzz)
+- **Enclosure (3D models):** [enclosure](C%3A/Users/mcoblent/OneDrive/Ubiquity_doorbell_to_mechanical_chime/hardware/enclosure)
+- **Bill of Materials:** [BOM.csv](C%3A/Users/mcoblent/OneDrive/Ubiquity_doorbell_to_mechanical_chime/hardware/BOM.csv)
+<!-- AUTOLINKS:END -->
+
+
 ```
 
 ## License

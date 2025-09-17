@@ -72,3 +72,10 @@
 	rm -rf $(VENV)
 	find . -name "__pycache__" -type d -exec rm -rf {} +
 	find . -name "*.pyc" -delete
+
+# --- Auto-link docs into README ---
+.PHONY: readme-links check-readme-links
+readme-links:
+	python3 scripts/update_readme_links.py
+check-readme-links:
+	python3 scripts/update_readme_links.py --check
