@@ -47,7 +47,7 @@ curl -X POST "http://<pi-ip>:8080/test"
 ## UniFi Protect (Alarm Manager)
 Create an automation: **Doorbell Ring → Webhook (HTTP POST)** to
 `http://<pi-ip>:8080/doorbell?secret=<your-secret>`
-(or header `X-Webhook-Secret: <your-secret>`). See `docs/UNIFI-PROTECT.md`.
+(or header `X-Webhook-Secret: <your-secret>`). See [`docs/UNIFI-PROTECT.md`](docs/UNIFI-PROTECT.md).
 
 ## Firewall
 Lock port 8080 to your UDM-Pro (and optionally your admin machine). See `docs/FIREWALL.md`.
