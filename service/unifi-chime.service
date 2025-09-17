@@ -1,0 +1,18 @@
+[Unit]
+Description=UniFi Doorbell → Mechanical Chime bridge (Flask via waitress)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/opt/unifi-chime
+EnvironmentFile=/opt/unifi-chime/.env
+# Ensure Python can import from src/
+Environment=PYTHONPATH=/opt/unifi-chime/src
+ExecStart=/bin/bash -lc 'source .venv/bin/activate && waitress-serve --host ${LISTEN_HOST} --port ${LISTEN_PORT} unifi_chime.app:create_app()'
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
