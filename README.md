@@ -57,6 +57,7 @@ Lock port 8080 to your UDM-Pro (and optionally your admin machine). See `docs/FI
 make venv
 make test
 make run
+```
 
 
 <!-- AUTOLINKS:BEGIN -->
@@ -75,8 +76,6 @@ make run
 - **Bill of Materials:** [BOM.csv](hardware/BOM.csv)
 <!-- AUTOLINKS:END -->
 
-
-```
 
 ## License
 MIT — see `LICENSE`.
