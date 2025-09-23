@@ -1,5 +1,0 @@
-Item,Quantity,Description,Part Number/Link,Notes
-Relay module,1,Songle SRD-05VDC-SL-C 1-ch board,,IN/DC+/DC- control; COM/NO/NC contacts
-Raspberry Pi,1,Pi 4/3B+/Zero 2 W,,GPIO17 used for IN
-Doorbell wire,As needed,18-22 AWG stranded,,Low-voltage
-Cable gland,2,PG7,,Strain relief (optional)

@@ -1,0 +1,7 @@
+Item,Qty,Notes,Example / Part
+Raspberry Pi 4 (any RAM),1,Runs the bridge service,"Raspberry Pi 4 Model B"
+PoE splitter (5V 3A),1,Power Pi from PoE and use Ethernet,"802.3af/at to 5V USB-C splitter"
+5V Songle relay module (1-ch),1,Logic-level input + COM/NO/NC contacts,"SRD-05VDC-SL-C module"
+Low-voltage doorbell transformer,1,Existing 16-24 VAC supply,Existing
+Wire (22–24 AWG),Some,Two conductors for COM↔NO to button pair,Telephone 4-conductor ok
+Small enclosure for relay,1,3D printed,Included .3mf files

@@ -1,0 +1,16 @@
+[Unit]
+Description=UniFi Doorbell → Legacy Chime bridge
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=matthewc100
+WorkingDirectory=/opt/unifi-chime
+EnvironmentFile=/opt/unifi-chime/.env
+ExecStart=/bin/bash -lc "source .venv/bin/activate && waitress-serve --host ${LISTEN_HOST} --port ${LISTEN_PORT} app:app"
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
